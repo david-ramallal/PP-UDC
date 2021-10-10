@@ -1,13 +1,13 @@
 # PP-UDC
-Paradigmas de Programación
+## Paradigmas de Programación
 
-Prácticas
-  p1 - 
-  p2 - 
-  p3 - 
-  p4 -
-  p5 -
+#### Prácticas
+  p1 - <br />
+  p2 - <br />
+  p3 - <br />
+  p4 - <br />
+  p5 - <br />
 
-Pruebas Prácticas
-  pp1 - 10
-  pp2 -
+#### Pruebas Prácticas
+  pp1 - 10 <br />
+  pp2 - <br />
