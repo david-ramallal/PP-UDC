@@ -9,5 +9,5 @@ Prácticas
   p5 -
 
 Pruebas Prácticas
-  pp1 - 
+  pp1 - 10
   pp2 -
