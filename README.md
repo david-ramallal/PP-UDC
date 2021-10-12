@@ -10,4 +10,4 @@
 
 #### Pruebas Prácticas
   pp1 - 10 <br />
-  pp2 - <br />
+  pp2 - 10 <br />
