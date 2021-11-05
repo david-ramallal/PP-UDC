@@ -60,17 +60,16 @@ let rec filter f l =
     [] -> aux2
     | h::t -> if f h then aux f t (h::aux2)
 			  else aux f t aux2
-    in aux f (rev l) [];; 
+    in aux f (rev l) [] 
 	
 let find_all = filter
-	
-let rec aux_partition f l = match l with
-	[] -> []
-	| h::t -> if f h then aux_partition f t else h::(aux_partition f t) 
-	
-let partition f l = match l with
-	[] -> [],[]
-	| h::t -> (filter f l, aux_partition f l)
+
+let partition f l =
+  let rec aux_partition f l l2 l3= match l with
+    [] -> (rev l2, rev l3)
+    | h::t -> if f h then aux_partition f t (h::l2) l3
+					else aux_partition f t l2 (h::l3)
+    in aux_partition f l [] []
 
 let rec split l = match l with
 	[] -> [],[]
@@ -102,7 +101,7 @@ let rev_map f l =
   let rec aux l auxl = match l with
     [] -> auxl
     | h::t -> aux t (f(h)::auxl)
-  in aux l [];;
+  in aux l []
 
 let rec map2 f l1 l2 =
   if (length l1 <> length l2)
