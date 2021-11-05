@@ -11,14 +11,22 @@ let rec length = function
 let rec top = function
 	1 -> 1
 	| n -> max n (top (f n))
-		
-(*	
-let rec top = function
-	1 -> 1
-	|n -> let x = top (f n) in if n > x then n else x
-*)
 
 let rec length'n'top = function
 	1 -> (0,1)
 	| n -> let x = (length'n'top (f n)) in (1 + fst x, if n > snd x then n else snd x)
 
+(* Opcionales: *)
+let rec longest_in m n = 
+	if m = n then m else 
+		if (length m) >= (length n) then longest_in m (n-1) 
+		else longest_in (m+1) n
+		
+let rec highest_in m n = 
+	if m = n then m else 
+		if (top m) >= (top n) then highest_in m (n-1) 
+		else highest_in (m+1) n
+
+	
+ 
+ 
