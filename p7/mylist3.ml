@@ -19,8 +19,7 @@ let rec lprod l1 l2 = match l1 with
 	| h::t -> List.append (aux_lprod h l2) (lprod t l2)
 
 let rec divide = function
-	[] -> ([],[])
-	| h1::h2::t -> let  (l1, l2) = divide t in (h1::l1,h2::l2)
+	h1::h2::t -> let  (l1, l2) = divide t in (h1::l1,h2::l2)
 	| l -> l, []
 
 	
