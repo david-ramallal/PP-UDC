@@ -73,17 +73,24 @@ let remove x l =
 let rec divide = function 
 	h1::h2::t -> let l1, l2 = divide t in h1::l1, h2::l2
 	| l -> l, []
-Para hacer divide terminal usar 2 acumuladores (no hace falta darle la vuelta, orden no importa)
 *)
-let divide l =
-	let rec aux l1 l2 = function
-		[] -> [],[]
-		| h::t -> if h mod 2 <> 0 then 
-	in aux [] []
-
+let divide l = 
+	let rec aux acc1 acc2 = function
+		h1::h2::t -> aux (h1::acc1) (h2::acc2) t
+		| [] -> (List.rev acc1, List.rev acc2)
+		| h::[] -> (List.rev (h::acc1), List.rev acc2)
+	in aux [] [] l
 (*		  
 let rec compress = function
 	| h1::h2::t -> if h1 = h2 then compress (h2::t)
 				  else h1 :: compress (h2::t)
 	| l -> l;;
 *)
+let compress l = 
+	let rec aux acc = function
+		h1::h2::t -> if h1 = h2 then aux acc (h2::t)
+					else aux (h1::acc) (h2::t)
+		| h::[] -> List.rev (h::acc)
+		| [] -> List.rev acc
+	in aux [] l
+
