@@ -1,5 +1,6 @@
 open List;;
 
+
 let dentro_tablero m n (x,y) = 
 	x >= 1 &&  x <= m && y >= 1 && y <= n
 ;;
