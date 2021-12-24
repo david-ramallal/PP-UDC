@@ -13,11 +13,8 @@ let rec leaves = function
 	| Gt (r,h::[]) -> leaves h
 	| Gt (r,h::t) -> leaves h @ leaves (Gt (r,t))
 ;;
-(*Revisar mirror, no va bien del todo*)
 let rec mirror = function
-	Gt (r,[]) -> Gt (r, [])
-	| Gt (r,h::[]) -> Gt (r, mirror h::[])
-	| Gt (r,h::t) -> Gt (r,List.rev (mirror h::t))
+	Gt (r,l) -> Gt (r,List.rev (List.map mirror l))
 ;;
 (*Revisar preorder, no va bien del todo*)
 let rec preorder = function

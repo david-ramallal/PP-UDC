@@ -5,16 +5,24 @@ type 'a bin_tree =
 let rec fold_tree f a = function
     Empty -> a
   | Node (x, l, r) -> f x (fold_tree f a l) (fold_tree f a r);;
+  
+(*
+let rec sum = function
+	Empty -> 0
+	| Node (x, l, r) -> x + (sum l) + (sum r);;
 
-(* Implemente sum, prod, size, inorder y mirror usando fold_tree *)
+let rec prod = function
+	Empty -> 1.0
+	| Node (x, l, r) -> x *. (prod l) *. (prod r);;
+*)
 
-let sum = ... ;;
+let sum t = fold_tree (fun a b c -> a + b + c) 0 t;;
 
-let prod = ... ;;
+let prod t =  fold_tree (fun a b c -> a * b * c) 1 t;;
 
-let size = ... ;;
+let size t = fold_tree (fun a b c -> 1 + b + c) 0 t;;
 
-let inorder = ...;;
+let inorder t = fold_tree (fun a b c -> b @ a::c) [] t;;
 
-let mirror = ... ;;
+let mirror t = fold_tree (fun a b c -> Node(a, c, b)) Empty t;;
 
