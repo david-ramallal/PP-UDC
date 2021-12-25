@@ -27,6 +27,11 @@ type prop =
   | Op of oper * prop
   | BiOp of biOper * prop * prop
 ;;
+(*
+Ejemplo:
+let ej1 = BiCond (Cond (Var "p", Var "q"), Disj (Neg (Var "p"), Var "q"));;
+let ej2 = BiOp (Iff, BiOp (If, V "p", V "q"), BiOp (Or, Op (Not, V "p"), V "q"));;
+*)
 
 let rec prop_of_log_exp = function
 	Const x -> C x
@@ -46,11 +51,25 @@ let rec log_exp_of_prop = function
 	| BiOp (If, x, y) -> Cond (log_exp_of_prop x, log_exp_of_prop y)
 	| BiOp (Iff, x, y) -> BiCond (log_exp_of_prop x, log_exp_of_prop y)
 ;;
-
 let opval = function
-	Not -> not;;
+	Not -> not
+;;
 let biopval = function
 	Or -> (||)
 	| And -> (&&)
-	| If -> ...
-	| Iff -> ...;;
+	| If -> (||)            						
+	| Iff -> (=)
+;;
+let rec peval ctx = function
+	C b -> b
+	| V s -> List.assoc s ctx
+	| Op (Not, e) -> opval Not (peval ctx e)
+	| BiOp (Or, e1, e2) -> biopval Or (peval ctx e1) (peval ctx e2)
+	| BiOp (And, e1, e2) -> biopval And (peval ctx e1) (peval ctx e2)
+	| BiOp (If, e1, e2) -> biopval If (not (peval ctx e1)) (peval ctx e2)
+	| BiOp (Iff, e1, e2) -> biopval Iff (peval ctx e1) (peval ctx e2)
+;;
+
+let rec is_tau p = function
+	 
+
