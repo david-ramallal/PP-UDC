@@ -16,11 +16,8 @@ let rec leaves = function
 let rec mirror = function
 	Gt (r,l) -> Gt (r,List.rev (List.map mirror l))
 ;;
-(*Revisar preorder, no va bien del todo*)
 let rec preorder = function
-	Gt (r,[]) -> [r]
-	| Gt (r,h::[]) -> r :: preorder h
-	| Gt (r,h::t) -> (r :: (preorder h)) @ (preorder (Gt (r,t)))
+	Gt (r,l) -> (r :: List.concat (List.map preorder l))
 ;;
 let rec postorder = function
 	Gt (r,[]) -> [r]
