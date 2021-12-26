@@ -29,6 +29,8 @@ let l2 = List.init 150_000 (fun _ -> Random.int 1000000);;
 msort1 (<) l2 produce Stack Overflow
 *)
 
+let l2 = List.init 150_000 (fun _ -> Random.int 1000000);;
+
 let divide' l = 
 	let rec aux acc1 acc2 = function
 		h1::h2::t -> aux (h1::acc1) (h2::acc2) t

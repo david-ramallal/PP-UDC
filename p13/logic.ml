@@ -69,7 +69,8 @@ let rec peval ctx = function
 	| BiOp (If, e1, e2) -> biopval If (not (peval ctx e1)) (peval ctx e2)
 	| BiOp (Iff, e1, e2) -> biopval Iff (peval ctx e1) (peval ctx e2)
 ;;
+(*
+let rec is_tau p = 
 
-let rec is_tau p = function
-	 
-
+;;
+*)
