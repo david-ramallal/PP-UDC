@@ -1,6 +1,8 @@
 # PP-UDC
 # Paradigmas de Programación
 
+Prácticas de la asignatura de Paradigmas de Programación del primer cuatrimestre del curso 2021/22
+
 ## Prácticas Obligatorias
   **p1** - 10 <br />
   **p2** - 10 <br />
@@ -25,11 +27,11 @@
   **p12.3** - 10 <br />
   **p13.2** - 0 <br />
 
-## Pruebas Prácticas
+## Pruebas Prácticas Voluntarias
   **pp1** - 10 <br />
   **pp2** - 10 <br />
   **competitiva1** - No <br />
   **competitiva2** - No <br />
 
 ### TOTAL PRÁCTICAS -> 2'00/2'00
-### TOTAL PRUEBAS PRÁCTICAS -> 0'40/2'00
+### TOTAL PRUEBAS PRÁCTICAS -> 0'40
